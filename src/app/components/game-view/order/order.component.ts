@@ -25,10 +25,10 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     this.saleForm = new FormGroup({
       name: new FormControl('', Validators.required),
-      identification: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
+      identification: new FormControl('', [Validators.required, Validators.min(1)]),
+      phone: new FormControl('', [Validators.required, Validators.min(1), Validators.minLength(11)]),
       address: new FormControl('', Validators.required),
-      amount: new FormControl('', Validators.required)
+      amount: new FormControl('', [Validators.required, Validators.min(1)])
     });
 
     this.id = this.route.snapshot.parent.params['id'];

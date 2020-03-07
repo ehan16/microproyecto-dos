@@ -23,9 +23,6 @@ export class GameDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.params["id"];
-    console.log(this.id);
-
     this.route.params.subscribe((param: Params) => {
       this.id = param["id"];
     });
@@ -45,29 +42,10 @@ export class GameDetailComponent implements OnInit {
       console.log(data);
     });
 
-
-    const day1 = new Date(this.game.released);
-    const day2 = new Date('2020-03-06');
-
-    const gameDate = day1.toDateString();
-    const todayDate = day2.toDateString();
-
-    if (this.compareDates('2020-03-06', day1)) {
-      this.released = false;
-    } else {
-      this.released = true;
-    }
   }
 
   buy() {
     this.router.navigate(["buy"], { relativeTo: this.route });
   }
 
-  compareDates(da1, da2) {
-    let parts = da1.split("-");
-    let d1 = Number(parts[2] + parts[1] + parts[0]);
-    parts = da2.split("-");
-    let d2 = Number(parts[2] + parts[1] + parts[0]);
-    return d1 <= d2;
-  }
 }

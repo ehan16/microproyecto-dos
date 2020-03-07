@@ -1,5 +1,5 @@
-<div class="row justify-content-center align-content-center pt-5">
-  <div class="sale-form">
+<div class="row justify-content-center align-content-center pt-5 bg-game">
+  <div class="sale-form mb-5">
     <hr>
     <div class="text-center font-weight-bold">
       <h4>{{ game.name }}</h4>
@@ -35,6 +35,7 @@
           placeholder="123456"
           formControlName="identification"
           class="form-control form-field"
+          min="1"
         />
         <span
           *ngIf="
@@ -49,13 +50,14 @@
       </div>
 
       <div class="form-group">
-        <label for="identification">Número telefónico</label>
+        <label for="phone">Número telefónico</label>
         <input
           type="number"
           id="phone"
           placeholder="02123427659"
           formControlName="phone"
           class="form-control form-field"
+          min="0"
         />
         <span
           *ngIf="
