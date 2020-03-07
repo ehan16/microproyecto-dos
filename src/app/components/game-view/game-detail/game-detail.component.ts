@@ -45,13 +45,14 @@ export class GameDetailComponent implements OnInit {
       console.log(data);
     });
 
+
     const day1 = new Date(this.game.released);
     const day2 = new Date('2020-03-06');
 
     const gameDate = day1.toDateString();
     const todayDate = day2.toDateString();
 
-    if (this.compareDates(day2, day1)) {
+    if (this.compareDates('2020-03-06', day1)) {
       this.released = false;
     } else {
       this.released = true;
