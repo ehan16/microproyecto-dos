@@ -4,11 +4,11 @@ import { GameService } from 'src/app/services/game.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-upcoming-game',
+  templateUrl: './upcoming-game.component.html',
+  styleUrls: ['./upcoming-game.component.css']
 })
-export class HomeComponent implements OnInit {
+export class UpcomingGameComponent implements OnInit {
 
   searchText;
   games: Game[];
@@ -17,7 +17,12 @@ export class HomeComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router) { }
 
   ngOnInit() {
-    this.gameService.getGames(this.size).subscribe(
+
+    const today = new Date();
+    console.log(today);
+    console.log(today.getDate);
+
+    this.gameService.getUpcomingGames(today, this.size).subscribe(
       data => {
         this.games = data['results'];
         console.log(this.games);
@@ -28,6 +33,7 @@ export class HomeComponent implements OnInit {
   seeDetails(game: Game) {
     this.router.navigate(['/game', game.id]);
     console.log(game.id);
+    console.log(game.released);
   }
 
   seeMore(){

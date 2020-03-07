@@ -1,0 +1,18 @@
+.info {
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 95vw;
+  margin: 20px;
+  padding: 40px;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h6 {
+  margin-top: 10px;
+  font-weight: bolder;
+  color: rgb(141, 0, 0)
+}

@@ -1,0 +1,24 @@
+<div class="row wrapper">
+  <table class="table table-responsive-sm list">
+    <thead>
+      <tr class="bg-dark text-white">
+        <th>Nombre</th>
+        <th>Cédula</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th>Juego</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <th scope="row">{{ sale.name }}</th>
+        <td>{{ sale.identification }}</td>
+        <td>{{ sale.phone }}</td>
+        <td>{{ sale.address }}</td>
+        <td>{{ sale.amount }}</td>
+        <td>{{ sale.videogame }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

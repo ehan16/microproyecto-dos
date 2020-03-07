@@ -5,10 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirestoreService {
   constructor( private firestore: AngularFirestore) {}
 
-  public create(data: {nombre: string, url: string}, collection: string) {
+  public create(data: any, collection: string) {
     return this.firestore.collection(collection).add(data);
   }
 
@@ -21,6 +22,6 @@ export class FirestoreService {
   }
 
   public update(documentId: string, data: any, collection: string) {
-    return this.firestore.collection(collection).doc(documentId).set(data);
+    return this.firestore.collection(collection).doc(documentId).set({data}, { merge: true});
   }
 }

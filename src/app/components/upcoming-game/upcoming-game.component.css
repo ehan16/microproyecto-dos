@@ -1,5 +1,5 @@
 .form-shadow {
-  box-shadow: 0 10px 40px 0 #B0C1D9;
+  box-shadow: 0 10px 40px 0 rgb(116, 116, 116);
 }
 
 table {
@@ -40,11 +40,11 @@ tr:hover {
   border: 1px solid gray;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgb(255, 253, 220);
+  background-color: rgb(232, 235, 255);
 }
 
 .thumbnail:hover {
-  background-color: rgb(255, 251, 181);
+  background-color: rgb(206, 212, 253);
 }
 
 .title {
@@ -52,5 +52,3 @@ tr:hover {
   justify-content: center;
   align-items: center;
 }
-
-
