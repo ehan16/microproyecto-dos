@@ -42,7 +42,7 @@ export class GameService {
     const year = date.getFullYear();
     const today = year + '-' + month + '-' + day;
     console.log(today);
-    let endpoint = `https://api.rawg.io/api/games?dates=2020-03-06,2022-01-01&ordering=-added&page_size${size}`;
+    let endpoint = `https://api.rawg.io/api/games?dates=2020-03-06,2022-01-01&ordering=-added&page_size=20&page=${size}`;
     // let endpoint = `https://api.rawg.io/api/games?dates=${today},2022-01-01&ordering=-added`;
     // let endpoint = `${this.baseUrl}?dates=1000-01-01,${today}&page_size=${size}`;
     return this.http.get(endpoint);
