@@ -31,7 +31,7 @@ export class UpcomingGameComponent implements OnInit {
   }
 
   seeDetails(game: Game) {
-    this.router.navigate(['/game', game.id]);
+    this.router.navigate(['/game', game.id, {queryParams: { released: 'false'}}]);
     console.log(game.id);
     console.log(game.released);
   }

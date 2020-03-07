@@ -9,6 +9,7 @@ import { ActivatedRoute, Router, Params } from "@angular/router";
   styleUrls: ["./game-detail.component.css"]
 })
 export class GameDetailComponent implements OnInit {
+
   game: Game;
   id: number;
   trailer: any;
@@ -26,6 +27,12 @@ export class GameDetailComponent implements OnInit {
     this.route.params.subscribe((param: Params) => {
       this.id = param["id"];
     });
+
+    this.route.queryParams.subscribe(
+      params => {
+        this.released = params['released'];
+      }
+    );
 
     this.gameService.getTrailers(this.id).subscribe(data => {
       this.trailer = data["results"];
