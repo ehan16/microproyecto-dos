@@ -36,13 +36,13 @@
     </div>
     <hr />
     <h5 class="text-uppercase font-weight-bold">Screenshots</h5>
-    <div *ngFor="let result of screenshots" class="my-4 text-center">
-        <img src="{{ result.image }}" height="70%" width="70%">
-    </div>
+      <div *ngFor="let result of screenshots" class="my-4 text-center">
+          <img src="{{ result.image }}" height="70%" width="70%">
+      </div>
     <hr />
     <h5 class="text-uppercase font-weight-bold mt-4">trailer</h5>
-    <div *ngFor="let object of trailer" class="text-center my-4 d-flex">
-      <video src="{{ object['data'].max }}" controls height="30%" width="30%"></video>
+    <div *ngFor="let object of trailer" class="text-center my-4">
+      <video src="{{ object['data'].max }}" controls height="70%" width="70%"></video>
     </div>
   </div>
 

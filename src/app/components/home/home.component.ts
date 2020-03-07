@@ -12,12 +12,12 @@ export class HomeComponent implements OnInit {
 
   searchText;
   games: Game[];
-  size = 20;
+  page = 1;
 
   constructor(private gameService: GameService, private router: Router) { }
 
   ngOnInit() {
-    this.gameService.getGames(this.size).subscribe(
+    this.gameService.getGames(this.page).subscribe(
       data => {
         this.games = data['results'];
         console.log(this.games);
@@ -31,8 +31,13 @@ export class HomeComponent implements OnInit {
   }
 
   seeMore(){
-    this.size = this.size + 20;
-    console.log(this.size);
+    this.page = this.page + 1;
+    console.log(this.page);
+    this.gameService.getGames(this.page).subscribe(
+      data => {
+        this.games.push(...data['results']);
+      }
+    )
   }
 
 }

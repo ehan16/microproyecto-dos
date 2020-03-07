@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class GameService {
 
   baseUrl: string = 'https://api.rawg.io/api/games';
-  pageSize: string = 'https://api.rawg.io/api/games?page_size=';
+  pageSize: string = 'https://api.rawg.io/api/games?page_size=20&page=';
 
   constructor(private http: HttpClient) {
   }
