@@ -47,8 +47,11 @@
   </div>
 
   <div class="w-100 m-5">
-    <button class="btn btn-block bg-dark text-white" type="button" (click)="buy()">
+    <button *ngIf="released" class="btn btn-block bg-dark text-white" type="button" (click)="buy()">
       Comprar
+    </button>
+    <button *ngIf="!released" disabled class="btn btn-block bg-dark text-white" type="button" (click)="buy()">
+      Proximamente el {{ game.released }}
     </button>
   </div>
 </div>

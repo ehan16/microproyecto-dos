@@ -37,11 +37,14 @@ export class GameService {
   }
 
   getUpcomingGames(date: Date, size) {
-    const day = date.getDate();
+    const day = date.getDate() - 1;
     const month = date.getMonth();
     const year = date.getFullYear();
     const today = year + '-' + month + '-' + day;
-    let endpoint = `${this.baseUrl}?dates=1000-01-01,${today}&page_size=${size}`;
+    console.log(today);
+    let endpoint = `https://api.rawg.io/api/games?dates=2020-03-06,2022-01-01&ordering=-added`;
+    // let endpoint = `https://api.rawg.io/api/games?dates=${today},2022-01-01&ordering=-added`;
+    // let endpoint = `${this.baseUrl}?dates=1000-01-01,${today}&page_size=${size}`;
     return this.http.get(endpoint);
   }
 

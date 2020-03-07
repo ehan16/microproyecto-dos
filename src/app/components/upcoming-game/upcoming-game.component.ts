@@ -12,7 +12,7 @@ export class UpcomingGameComponent implements OnInit {
 
   searchText;
   games: Game[];
-  size = 20;
+  page = 1;
 
   constructor(private gameService: GameService, private router: Router) { }
 
@@ -22,7 +22,7 @@ export class UpcomingGameComponent implements OnInit {
     console.log(today);
     console.log(today.getDate);
 
-    this.gameService.getUpcomingGames(today, this.size).subscribe(
+    this.gameService.getUpcomingGames(today, this.page).subscribe(
       data => {
         this.games = data['results'];
         console.log(this.games);
@@ -37,8 +37,14 @@ export class UpcomingGameComponent implements OnInit {
   }
 
   seeMore(){
-    this.size = this.size + 20;
-    console.log(this.size);
+    const today = new Date();
+    this.page = this.page + 1;
+    console.log(this.page);
+    this.gameService.getUpcomingGames(today, this.page).subscribe(
+      data => {
+        this.games.push(...data['results']);
+      }
+    )
   }
 
 }
