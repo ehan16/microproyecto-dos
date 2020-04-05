@@ -17,12 +17,13 @@ export class HomeComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router) { }
 
   ngOnInit() {
-    this.gameService.getGames(this.page).subscribe(
+     this.gameService.getGames(this.page).subscribe(
       data => {
         this.games = data['results'];
         console.log(this.games);
-      }
+       }
     );
+    // this.games = this.gameService.getGames(this.page)['results'];
   }
 
   seeDetails(game: Game) {
@@ -30,14 +31,15 @@ export class HomeComponent implements OnInit {
     console.log(game.id);
   }
 
-  seeMore(){
+  seeMore() {
     this.page = this.page + 1;
     console.log(this.page);
+    // this.games.push(...this.gameService.getGames(this.page)['results']);
     this.gameService.getGames(this.page).subscribe(
-      data => {
+     data => {
         this.games.push(...data['results']);
       }
-    )
+     );
   }
 
 }
